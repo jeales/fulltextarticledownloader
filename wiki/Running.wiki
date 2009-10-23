@@ -2,7 +2,7 @@
 = Requirements =
 This software requires Java version 5.0 (this is also referred to as Java 1.5.0) or above.
 You can download it from [http://www.java.com/en/download/manual.jsp here].
-If you have a Mac (PowerPC or Intel), then Java will already be installed, and if you have applied all software updates, then you will have at least Java 1.5 installed and ready to go.
+If you have a Mac, then Java will already be installed, and if you have applied all software updates, then you will have at least Java 1.5 installed and ready to go.
 
 == Making sure Java is available on the command line ==
 Sometimes even if Java is installed, it will still not be available from the command line.
@@ -19,3 +19,9 @@ Java HotSpot(TM) Client VM (build 1.5.0_20-141, mixed mode, sharing)
 I have Java version 5.0 ("{{{build 1.5.0_20-b02-315}}}") installed.
 
 If you do not get an error or some other form of strange output, please follow [http://www.java.com/en/download/help/path.xml these instructions] to update your path to include the Java executable.
+
+= Getting, Installing and Running the software =
+# Please [http://code.google.com/p/fulltextarticledownloader/downloads/list download] the appropriate zip file for your operating system (please note, PowerPC Macs are not currently supported).
+# Decompress the zip file using software appropriate for your operating system (i.e. Mac: Archive Utility, Linux :gunzip, Windows: WinZip or 7Zip)
+# Open a terminal window and navigate to the directory where you decompressed the zip file (i.e. {{{cd c:\articledownloader}}} )
+# Then run the application using the run script, which is called run.sh for Linux and Mac and run.bat in Windows.  Actually, in Windows you will probably be able to double click the run.bat file in Explorer
