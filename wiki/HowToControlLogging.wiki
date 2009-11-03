@@ -10,3 +10,6 @@ If you want to enable logging of the download agent, then change logging value t
 {{{
 logging=true
 }}}
+When logging is enabled a file will be created called `MySimpleAgent.log`.
+This file will be appended to every time you run the software and can become quite large over time.
+If you want to start a new log file just delete the file and it will be automatically created the next you run the software.
