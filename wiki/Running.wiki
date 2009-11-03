@@ -27,4 +27,4 @@ If you do not get an error or some other form of strange output, please follow [
 
 3. Open a terminal window and navigate to the directory where you decompressed the zip file (i.e. {{{cd c:\articledownloader}}} )
 
-4. Then run the application using the run script, which is called run.sh for Linux and Mac and run.bat in Windows.  Actually, in Windows you will probably be able to double click the run.bat file in Explorer
+4. Then run the application using the run script, which is called run.sh for Linux and Mac and run.bat in Windows.  In Windows you will probably be able to double click the run.bat file in Explorer
