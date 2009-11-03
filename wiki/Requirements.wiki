@@ -1,3 +1,4 @@
+#labels Featured,Phase-Deploy
 = Requirements =
 This software requires Java version 5.0 (this is also referred to as Java 1.5.0) or above.
 You can download it from [http://www.java.com/en/download/manual.jsp here].
