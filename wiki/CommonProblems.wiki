@@ -16,10 +16,9 @@ In the right environment variable (windows:PATH , Linux: LD_LIBRARY_PATH , macos
 or like this
 
 {{{
-com.dappit.Dapper.parser.ParserInitializationException: java.lang.UnsatisfiedLinkError: 
+com.dappit.Dapper.parser.ParserInitializationException: java.lang.UnsatisfiedLinkError:
 /Users/user1/ftad/native/libMozillaParser.jnilib:  no suitable image found.  Did find:  
-./native/libMozillaParser.jnilib: mach-o, but wrong architecture  
-
+./native/libMozillaParser.jnilib: mach-o, but wrong architecture 
 /Users/user1/ftad/native/libMozillaParser.jnilib: mach-o, but wrong architecture
 }}}
 
