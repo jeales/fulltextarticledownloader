@@ -40,4 +40,14 @@ echo $LD_LIBRARY_PATH
 java -d32 -Xmx256m -jar FullTextArticleDownloader.jar
 }}}
 
-Inversely 
+Inversely if you find the inclusion of the `-d32` causes this kind of error
+{{{
+C:\Documents and Settings\bob>java -d32
+Unrecognized option: -d32
+Could not create the Java virtual machine.
+}}}
+This is telling you that your version of Java only supports one of 32 or 64 bit, and therefore if the the default `run' file does not work then you will most likely not be able to run this software.  
+
+If you, like me, find this very annoying, then you might want to consider virtualisation of an operating system that does work with the software, for example [http://www.ubuntu.com/getubuntu/download Ubuntu] 32-bit (which is free and has only minimal hardware requirements, which makes it good for virtualisation) or Windows XP 32-bit.  If you have an Intel Mac, you should be able to run this software with no problems. Both Ubuntu and Windows XP can be very easily run inside your native operating system using [http://www.virtualbox.org/ VirtualBox], which is free and is available for many different host operating systems.  
+
+The testing of this software on different operating systems has been achieved by the virtualisation strategy outlined above on an Intel Mac running Snow Leopard.
