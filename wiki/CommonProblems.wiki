@@ -39,3 +39,5 @@ echo $LD_LIBRARY_PATH
 
 java -d32 -Xmx256m -jar FullTextArticleDownloader.jar
 }}}
+
+Inversely 
