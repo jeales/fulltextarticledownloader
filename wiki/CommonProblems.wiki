@@ -8,7 +8,9 @@ If you see errors like this
 
 {{{
 Operating system : Mac OS X
-Warning:Could not load library /Users/jameseales/ftad/native/libMozillaParser.jnilib Possible reason : You have to include both mozilla.dist.bin.macosx And mozilla.dist.bin.macosx In the right environment variable (windows:PATH , Linux: LD_LIBRARY_PATH , macosx: DYLD_LIBRARY_PATH
+Warning:Could not load library /Users/jameseales/ftad/native/libMozillaParser.jnilib Possible reason 
+: You have to include both mozilla.dist.bin.macosx And mozilla.dist.bin.macosx 
+In the right environment variable (windows:PATH , Linux: LD_LIBRARY_PATH , macosx: DYLD_LIBRARY_PATH
 }}}
 
 or like this
