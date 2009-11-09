@@ -1,0 +1,32 @@
+#labels Featured,Phase-Deploy
+== Problems ==
+This software makes use of native code libraries that are compiled for each of the different operating systems supported (Windows, Linux, Mac OS X).  Therefore it is more likely that errors will occur when running the software.
+
+Included in the {{{native/}}} directory there are dynamic shared libraries which are compiled for your platform.  All libraries are 32 bit for all operating systems, therefore if you are on a 64 bit operating system they may not load. Although the libraries do work on Mac OS X snow leopard (a mostly 64 bit operating system).
+
+If you see errors like this
+
+{{{Operating system : Mac OS X
+Warning:Could not load library /Users/jameseales/ftad/native/libMozillaParser.jnilib Possible reason : You have to include both mozilla.dist.bin.macosx And mozilla.dist.bin.macosx In the right environment variable (windows:PATH , Linux: LD_LIBRARY_PATH , macosx: DYLD_LIBRARY_PATH )}}
+
+or like this
+
+{{com.dappit.Dapper.parser.ParserInitializationException: java.lang.UnsatisfiedLinkError: /Users/jameseales/ftad/native/libMozillaParser.jnilib:  no suitable image found.  Did find:  ./native/libMozillaParser.jnilib: mach-o, but wrong architecture  /Users/jameseales/ftad/native/libMozillaParser.jnilib: mach-o, but wrong architecture}}}
+
+This is telling you that your operating system is not able to use the libraries provided.  One remedy for this is to try and force Java to use a 32 bit virtual machine (VM).  This can be specified on the command line by including the {{{-d32}}} argument, you can specify this by editing the run file included, for example, by default the linux {{{run.sh}}} file includes.
+
+{{{
+export LD_LIBRARY_PATH=./native:./native/components:$LD_LIBRARY_PATH
+echo $LD_LIBRARY_PATH
+
+java -Xmx256m -jar FullTextArticleDownloader.jar
+}}}
+ 
+To force Java to use a 32 bit VM change the file to 
+
+{{{
+export LD_LIBRARY_PATH=./native:./native/components:$LD_LIBRARY_PATH
+echo $LD_LIBRARY_PATH
+
+java -d32 -Xmx256m -jar FullTextArticleDownloader.jar
+}}}
