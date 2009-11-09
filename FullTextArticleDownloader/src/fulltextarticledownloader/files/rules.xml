@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ruleset xmlns="SOMENAMESPACE">
+    <rule id=".pdf at end of url" field="url" pattern=".pdf$" weight="5.0" rulepolarity="positive" />
+    <rule id="html in url" field="url" pattern=".html$" weight="2.0" rulepolarity="negative" />
+    <rule id="pdf in url" field="url" pattern="pdf" weight="2.0" rulepolarity="positive" />
+    <rule id=".pdf at end of linktext" field="linktext" pattern=".pdf$" weight="2.0" rulepolarity="positive" />
+    <rule id="pdf in linktext" field="linktext" pattern="pdf" weight="3.0" rulepolarity="positive" />
+    <rule id="reprint in url" field="url" pattern="reprint" weight="3.0" rulepolarity="positive" />
+    <rule id="fulltext or full text in url" field="url" pattern="(fulltext)|(full text)" weight="1.5" rulepolarity="positive" />
+    <rule id="fulltext or full text in linktext" field="linktext" pattern="(fulltext)|(full text)|(entire document)" weight="1.5" rulepolarity="positive" />
+    <rule id="nav in linktext" field="linktext" pattern="nav" weight="1.5" rulepolarity="negative" />
+    <rule id="elsevier annoyance" field="url" pattern="sciencedirect" weight="0.1" rulepolarity="positive" />
+    <rule id="User Guides URL" field="url" pattern="(userguide|guide|quickstart|copyright|form|guest_user|faq|help)" weight="3.0" rulepolarity="negative" />
+    <rule id="Avoid foreign language guides linktext" field="linktext" pattern="francais|espanol|chinese" weight="2.0" rulepolarity="negative" />
+    <rule id="Avoid foreign language guides url" field="url" pattern="francais|espanol|chinese" weight="2.0" rulepolarity="negative" />
+    <rule id="PDF from frames bad" field="linktext" pattern="navbar" weight="2.0" rulepolarity="negative" />
+    <rule id="PDF from frames good" field="linktext" pattern="main" weight="2.0" rulepolarity="positive" />
+    <rule id="View Article linktext" field="linktext" pattern="view[| ]article" weight="2.0" rulepolarity="positive" />
+    <rule id="View Article url" field="url" pattern="view[| ]article" weight="2.0" rulepolarity="positive" />
+    <rule id="Strongest indication" field="linktext" pattern="fulltextpdf" weight="3.0" rulepolarity="positive" />
+    <rule id="Strong indication" field="linktext" pattern="citation_pdf_url" weight="4.0" rulepolarity="positive" />
+    <rule id="article is hi-res" field="linktext" pattern="hi-res" weight="1.5" rulepolarity="positive" />
+    <rule id="pmc and ukpmc" field="url" pattern="picrender\.cgi" weight="1.5" rulepolarity="positive" />
+    <rule id="pmc and ukpmc" field="linktext" pattern="PDF \(\d+K\)" weight="2.5" rulepolarity="positive" />
+    <rule id="pmc and ukpmc" field="url" pattern="blobtype=pdf" weight="1.5" rulepolarity="positive" />
+</ruleset>
