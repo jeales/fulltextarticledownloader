@@ -43,7 +43,7 @@ public class DownloadPanel extends javax.swing.JPanel {
             if (row == 0) {
                 row = 1;
             }
-            AgentDownloadRunnable downloadJob = new AgentDownloadRunnable(row-1,string, task.getStoreHere(), task.isSavePDF(), task.isSavePlainText(),task.isSaveXML());
+            AgentDownloadRunnable downloadJob = new AgentDownloadRunnable(row-1,string, task.getStoreHere(), task.isSavePDF(), task.isSavePlainText(),task.isSaveXML(),task.isCheckPDF());
             downloadJob.addPropertyChangeListener(messageHandler);
             pool.execute(downloadJob);
         }

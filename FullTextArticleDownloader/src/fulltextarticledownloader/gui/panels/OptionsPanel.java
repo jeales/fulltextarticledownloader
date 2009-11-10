@@ -56,6 +56,10 @@ public class OptionsPanel extends javax.swing.JPanel {
         return savePubMedXML.isSelected();
     }
 
+    public boolean isCheckPDF() {
+        return checkPDF.isSelected();
+    }
+
     public FileStore getFileStore() {
         FileStore f = null;
 
@@ -85,6 +89,7 @@ public class OptionsPanel extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         jButton3 = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
+        checkPDF = new javax.swing.JCheckBox();
 
         jLabel1.setText("Choose outputs");
 
@@ -126,6 +131,9 @@ public class OptionsPanel extends javax.swing.JPanel {
             }
         });
 
+        checkPDF.setSelected(true);
+        checkPDF.setText("check PDF content");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,14 +142,16 @@ public class OptionsPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE))
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(savePubMedXML)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(savePdf)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(savePlainText))
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                        .addComponent(savePlainText)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkPDF))
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -150,17 +160,16 @@ public class OptionsPanel extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fileStoreLocation, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE))
+                        .addComponent(fileStoreLocation, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)))
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,10 +178,11 @@ public class OptionsPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
                     .addComponent(savePubMedXML)
                     .addComponent(savePdf)
-                    .addComponent(savePlainText))
+                    .addComponent(savePlainText)
+                    .addComponent(checkPDF))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -187,7 +197,7 @@ public class OptionsPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -211,9 +221,13 @@ public class OptionsPanel extends javax.swing.JPanel {
         if (savePdf.isSelected()) {
             savePlainText.setSelected(false);
             savePlainText.setEnabled(true);
+            checkPDF.setSelected(false);
+            checkPDF.setEnabled(true);
         } else {
             savePlainText.setEnabled(false);
             savePlainText.setSelected(false);
+            checkPDF.setSelected(false);
+            checkPDF.setEnabled(false);
         }
     }//GEN-LAST:event_savePdfActionPerformed
 
@@ -224,6 +238,7 @@ public class OptionsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox checkPDF;
     private javax.swing.JTextField fileStoreLocation;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

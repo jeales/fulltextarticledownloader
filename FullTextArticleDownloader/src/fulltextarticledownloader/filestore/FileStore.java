@@ -74,7 +74,7 @@ public class FileStore {
         }
     }
 
-    public void create() {
+    public synchronized void create() {
         if (!isFileStoreCreated()) {
             initialiseBaseFileStore();
         }
@@ -104,7 +104,7 @@ public class FileStore {
         return getFileCountByFileType(FileElementType.xml);
     }
 
-    private synchronized void flush() {
+    private void flush() {
         if (isFileStoreCreated()) {
             saveFileListIndex();
         }
@@ -205,7 +205,7 @@ public class FileStore {
         }
     }
 
-    public boolean contains(String id, FileElementType fileElementType) {
+    public synchronized boolean contains(String id, FileElementType fileElementType) {
         //default that the input should be allowed
         boolean r = false;
 

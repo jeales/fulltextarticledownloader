@@ -106,6 +106,7 @@ public class ResultsPanel extends javax.swing.JPanel {
             task.setSavePDF(FinalGUI.getOptionsDialog().isSavePDF());
             task.setSavePlainText(FinalGUI.getOptionsDialog().isSavePlainText());
             task.setSaveXML(FinalGUI.getOptionsDialog().isSaveXML());
+            task.setCheckPDF(FinalGUI.getOptionsDialog().isCheckPDF());
             task.setStoreHere(FinalGUI.getOptionsDialog().getFileStore());
             FinalGUI.getDownloadPanel().addDownloadTask(task);
         } else {
@@ -120,6 +121,7 @@ public class ResultsPanel extends javax.swing.JPanel {
             task.setSavePDF(FinalGUI.getOptionsDialog().isSavePDF());
             task.setSavePlainText(FinalGUI.getOptionsDialog().isSavePlainText());
             task.setSaveXML(FinalGUI.getOptionsDialog().isSaveXML());
+            task.setCheckPDF(FinalGUI.getOptionsDialog().isCheckPDF());
             task.setStoreHere(FinalGUI.getOptionsDialog().getFileStore());
 
             if (n >= lastSetOfIds.size()) {
@@ -138,6 +140,7 @@ public class ResultsPanel extends javax.swing.JPanel {
         task.setSavePDF(FinalGUI.getOptionsDialog().isSavePDF());
         task.setSavePlainText(FinalGUI.getOptionsDialog().isSavePlainText());
         task.setSaveXML(FinalGUI.getOptionsDialog().isSaveXML());
+        task.setCheckPDF(FinalGUI.getOptionsDialog().isCheckPDF());
         task.setStoreHere(FinalGUI.getOptionsDialog().getFileStore());
         LinkedList<String> ids = new LinkedList<String>();
         ids.addAll(lastSetOfIds);
