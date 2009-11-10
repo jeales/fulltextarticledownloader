@@ -8,11 +8,11 @@ Firstly always try and run the software on a machine that as an IP address from 
 
 1. Run the software, see [http://code.google.com/p/fulltextarticledownloader/ here] if you don't know how to do this
 
-2. Now lets build a PubMed query, firstly choose `"Author"` from the drop down list on the top left
+2. Now lets build a PubMed query, firstly choose `"Title"` from the drop down list on the top left
 
 http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloader/wiki-images/two.png
 
-3. Then as an example enter `"altschul sf"` in the text box next to the drop down
+3. Then as an example enter `"ncbi"` in the text box next to the drop down
 
 http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloader/wiki-images/three.png
 
@@ -20,7 +20,7 @@ http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloa
 
 http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloader/wiki-images/four.png
 
-5. Now choose `"Journal Title"` from the drop down and type `"journal of molecular biology"` in the text box, again click the `"Add Search Term"` button, now your query should look like this.
+5. Now choose `"Year"` from the drop down and type `"2008"` in the text box, again click the `"Add Search Term"` button, now your query should look like this.
 
 http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloader/wiki-images/five.png
 
@@ -44,4 +44,10 @@ http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloa
 
 http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloader/wiki-images/ten.png
 
-11. Once the downloads have completed you can check the output by navigating to your filestore location.  In this case we specified XML, PDF and plain text to be saved therefore in the filestore location we have a directory for each of the file types and an index file called `"filestore.xml"`.  The index file enables the reuse of filestore directories and stops the software from trying to download files that are already in the filestore.
+11. Once the downloads have completed you can check the output by navigating to your filestore location.  In this case we specified XML, PDF and plain text to be saved therefore in the filestore location we have a directory for each of the file types and an index file called `"filestore.xml"`.  The index file enables the reuse of filestore directories and stops the software from trying to download files that are already in the filestore.  The filestore structure looks like this
+
+http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloader/wiki-images/eleven.png
+
+and the `"filestore.xml"` looks like this
+
+http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloader/wiki-images/twelve.png
