@@ -1,10 +1,6 @@
 #labels Featured
 == Doing some downloads ==
 
-=== An overview ===
-
-http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloader/wiki-images/one.png
-
 === A quick walkthrough ===
 
 This is a simple walkthrough that tells you how to actually use the software.
