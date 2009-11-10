@@ -1,4 +1,4 @@
 #labels Featured
 == Doing some downloads ==
 
-[http://code.google.com/p/fulltextarticledownloader/source/browse/trunk/FullTextArticleDownloader/wiki-images/one.png]
+http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloader/wiki-images/one.png
