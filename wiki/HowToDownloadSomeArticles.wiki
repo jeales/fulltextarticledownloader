@@ -1,4 +1,19 @@
 #labels Featured
 == Doing some downloads ==
 
+=== An overview ===
+
 http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloader/wiki-images/one.png
+
+=== A quick walkthrough ===
+
+This is a simple walkthrough that tells you how to actually use the software.
+Firstly always try and run the software on a machine that as an IP address from your institution. Most publishers use IP-based user authentication and therefore you will always get better results when connected to your institutions network.  If you configure a proxy or VPN at the operating system level, then the software will use these details automatically, currently the software does not support it own configuration of proxy server access.
+
+  # Run the software, see [http://code.google.com/p/fulltextarticledownloader/ here] if you don't know how to do this
+  # Now lets build a PubMed query, firstly choose `"Author"` from the drop down list on the top left
+http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloader/wiki-images/two.png
+  # Then as an example enter `"altschul sf"` in the text box next to the drop down
+http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloader/wiki-images/three.png
+  # Click the `"Add Search Term"` button
+http://fulltextarticledownloader.googlecode.com/svn/trunk/FullTextArticleDownloader/wiki-images/four.png
