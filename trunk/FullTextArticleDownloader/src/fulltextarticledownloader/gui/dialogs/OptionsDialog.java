@@ -40,6 +40,10 @@ public class OptionsDialog extends JDialog {
         return optionsPanel.isSaveXML();
     }
 
+    public boolean isCheckPDF() {
+        return optionsPanel.isCheckPDF();
+    }
+
     public boolean wasCancelled() {
         return optionsPanel.wasCancelled();
     }

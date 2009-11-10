@@ -16,20 +16,27 @@ public class DownloadTask {
 
     private List<String> ids;
     private FileStore storeHere;
-    private boolean savePDF, saveXML, savePlainText;
+    private boolean savePDF, saveXML, savePlainText, checkPDF;
 
-    public DownloadTask(LinkedList<String> ids, FileStore storeHere, boolean savePDF, boolean saveXML, boolean savePlainText) {
+    public DownloadTask(LinkedList<String> ids, FileStore storeHere, boolean savePDF, boolean saveXML, boolean savePlainText, boolean checkPDF) {
         this.ids = ids;
         this.storeHere = storeHere;
         this.savePDF = savePDF;
         this.saveXML = saveXML;
         this.savePlainText = savePlainText;
+        this.checkPDF = checkPDF;
     }
 
     public DownloadTask() {
     }
 
+    public boolean isCheckPDF() {
+        return checkPDF;
+    }
 
+    public void setCheckPDF(boolean checkPDF) {
+        this.checkPDF = checkPDF;
+    }
 
     public List<String> getIds() {
         return ids;

@@ -12,6 +12,7 @@ import fulltextarticledownloader.filestore.FileElementType;
 import fulltextarticledownloader.filestore.FileStore;
 import fulltextarticledownloader.filestore.FileStoreInput;
 import fulltextarticledownloader.pdfToText.PdfToTextAutomator;
+import fulltextarticledownloader.urlaccess.EUtilsAccessController;
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -44,7 +45,7 @@ public class AgentDownloadRunnable extends SwingWorker<Void, String> implements 
     private int rowID;
     private String pmid;
     private FileStore fileStore;
-    private boolean pdf, plainText, xml;
+    private boolean pdf, plainText, xml, checkPDF;
     private byte[] xmlBlob, pdfBlob;
     private String plainTextString;
     private String articleTitle;
@@ -67,13 +68,14 @@ public class AgentDownloadRunnable extends SwingWorker<Void, String> implements 
         }
     }
 
-    public AgentDownloadRunnable(int rowID, String pmid, FileStore fileStore, boolean pdf, boolean plainText, boolean xml) {
+    public AgentDownloadRunnable(int rowID, String pmid, FileStore fileStore, boolean pdf, boolean plainText, boolean xml, boolean checkPDF) {
         this.rowID = rowID;
         this.pmid = pmid;
         this.fileStore = fileStore;
         this.pdf = pdf;
         this.plainText = plainText;
         this.xml = xml;
+        this.checkPDF = checkPDF;
     }
 
     @Override
@@ -97,6 +99,8 @@ public class AgentDownloadRunnable extends SwingWorker<Void, String> implements 
                 LinkedList<String> l = new LinkedList<String>();
                 l.add(pmid);
                 sendURLMessage("Getting data for PubMed ID");
+                EUtilsAccessController controller = EUtilsAccessController.getURLAccessControllerRef();
+                controller.requestAccess();
                 PubMedMetaDataRetriever ret = new PubMedMetaDataRetriever(l);
                 Document d = ret.getEFetch().getLastRequest();
                 xmlBlob = xmlToBlob(d);
@@ -146,6 +150,8 @@ public class AgentDownloadRunnable extends SwingWorker<Void, String> implements 
                 sendURLMessage("Getting full text link");
                 LinkedList<String> id = new LinkedList<String>();
                 id.add(pmid);
+                EUtilsAccessController controller = EUtilsAccessController.getURLAccessControllerRef();
+                controller.requestAccess();
                 PubMedFullTextLinkRetriever linkRet = new PubMedFullTextLinkRetriever(id);
                 UrlIdBean linkData = linkRet.getLink(pmid);
                 if (linkData != null) {
@@ -159,7 +165,12 @@ public class AgentDownloadRunnable extends SwingWorker<Void, String> implements 
                 }
 
                 try {
-                    MySimpleAgent agent = new MySimpleAgent(this, linkData.getUrl(), new PdfDownloadTarget(articleTitle), DO_LOGGING);
+                    MySimpleAgent agent;
+                    if (checkPDF) {
+                        agent = new MySimpleAgent(this, linkData.getUrl(), new PdfDownloadTarget(articleTitle), DO_LOGGING);
+                    } else {
+                        agent = new MySimpleAgent(this, linkData.getUrl(), new PdfDownloadTarget(), DO_LOGGING);
+                    }
                     agent.runAgent();
                     if (agent.getAgentResult() == DownloadResult.TARGET_FOUND) {
                         sendPDFMessage("Found");
