@@ -11,6 +11,7 @@ package fulltextarticledownloader.linkanalysis;
 import fulltextarticledownloader.beans.LinkBean;
 import fulltextarticledownloader.beans.MatchingRuleBean;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -51,12 +52,14 @@ public class LinkAnalyser {
         XPath x = XPathFactory.newInstance().newXPath();
         Document doc = null;
         try {
-            doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(ClassLoader.getSystemResourceAsStream(RULES_FILE));
+            doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(ClassLoader.getSystemResource(RULES_FILE).toURI().toString());
         } catch (SAXException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (ParserConfigurationException ex) {
+            ex.printStackTrace();
+        } catch (URISyntaxException ex) {
             ex.printStackTrace();
         }
         //InputSource is = new InputSource(ClassLoader.getSystemResourceAsStream("fulltextarticledownloader/files/rules.xml"));
@@ -83,7 +86,7 @@ public class LinkAnalyser {
         } catch (XPathExpressionException ex) {
             ex.printStackTrace();
         }
-    //System.out.println("");
+        //System.out.println("");
     }
 
     public double analyseLink(LinkBean toAnalyse) {
@@ -131,5 +134,10 @@ public class LinkAnalyser {
         //System.out.println("");
 
         return r;
+    }
+
+    public static void main(String[] args) {
+        LinkAnalyser app = new LinkAnalyser();
+        System.out.println("");
     }
 }

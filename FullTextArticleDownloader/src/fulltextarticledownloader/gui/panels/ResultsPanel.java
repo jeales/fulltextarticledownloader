@@ -71,6 +71,22 @@ public class ResultsPanel extends javax.swing.JPanel {
         searchStatusField.setText("Search results found: " + this.lastSetOfIds.size());
     }
 
+    public void addStaticSetOfIDs(LinkedList<String> ids) {
+        FinalGUI.getQueryPanel().setReadyToGo();
+        metadataCounter = 0;
+        clearResultsTable();
+        setLastSetOfIds(ids);
+        if (ids.size() > (metadataCounter + GET_METADATA_FOR)) {
+            LinkedList<String> subList = new LinkedList<String>(ids.subList(metadataCounter, metadataCounter + GET_METADATA_FOR));
+            metadataCounter = GET_METADATA_FOR;
+            updateMetaDataFor(subList);
+        } else {
+            LinkedList<String> subList = new LinkedList<String>(ids.subList(metadataCounter, metadataCounter + ids.size()));
+            metadataCounter = ids.size();
+            updateMetaDataFor(subList);
+        }
+    }
+
     private void updateMetaDataFor(LinkedList<String> ids) {
         //
         PubMedMetaDataImporter importer = new PubMedMetaDataImporter(ids, resultsTableModel, this);
@@ -181,23 +197,13 @@ public class ResultsPanel extends javax.swing.JPanel {
         LinkedList<String> ids = null;
         try {
             ids = searcher.get();
-            metadataCounter = 0;
-            clearResultsTable();
-            setLastSetOfIds(ids);
-            if (ids.size() > (metadataCounter + GET_METADATA_FOR)) {
-                LinkedList<String> subList = new LinkedList<String>(ids.subList(metadataCounter, metadataCounter + GET_METADATA_FOR));
-                metadataCounter = GET_METADATA_FOR;
-                updateMetaDataFor(subList);
-            } else {
-                LinkedList<String> subList = new LinkedList<String>(ids.subList(metadataCounter, metadataCounter + ids.size()));
-                metadataCounter = ids.size();
-                updateMetaDataFor(subList);
-            }
         } catch (InterruptedException ex) {
             Logger.getLogger(ResultsPanel.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ExecutionException ex) {
             Logger.getLogger(ResultsPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        addStaticSetOfIDs(ids);
     }
 
     public void clearResultsTable() {

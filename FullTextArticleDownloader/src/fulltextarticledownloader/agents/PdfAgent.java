@@ -31,4 +31,8 @@ public class PdfAgent {
     public byte[] getPdf() {
         return agent.getDownloadTarget();
     }
+
+    public String getFinalURL() {
+        return agent.getResolvedUrl();
+    }
 }
