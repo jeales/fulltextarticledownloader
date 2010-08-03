@@ -31,6 +31,8 @@ public class OptionsPanel extends javax.swing.JPanel {
         filestoreChooser = new JFileChooser();
         filestoreChooser.setAccessory(new FileStorePreview(filestoreChooser));
         filestoreChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+        /*
         filestoreChooser.addActionListener(new ActionListener() {
 
             @Override
@@ -38,6 +40,8 @@ public class OptionsPanel extends javax.swing.JPanel {
                 System.out.println("ActionEvent - " + e.getActionCommand());
             }
         });
+         * 
+         */
     }
 
     public boolean wasCancelled() {

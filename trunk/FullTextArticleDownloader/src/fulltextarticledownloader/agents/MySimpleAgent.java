@@ -369,7 +369,7 @@ public class MySimpleAgent {
                             //dom = parser.getDocument();
                         } catch (Exception ex) {
                             ex.printStackTrace();
-                            System.exit(1);
+                            //System.exit(1);
                         }
 
                         LinkedList<LinkBean> links = extractLinks(dom);
