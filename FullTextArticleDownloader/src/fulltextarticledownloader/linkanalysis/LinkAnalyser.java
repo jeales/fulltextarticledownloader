@@ -52,16 +52,15 @@ public class LinkAnalyser {
         XPath x = XPathFactory.newInstance().newXPath();
         Document doc = null;
         try {
-            doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(ClassLoader.getSystemResource(RULES_FILE).toURI().toString());
-        } catch (SAXException ex) {
+            doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(this.getClass().getClassLoader().getResource(RULES_FILE).openStream());
+        } catch (ParserConfigurationException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
             ex.printStackTrace();
-        } catch (ParserConfigurationException ex) {
-            ex.printStackTrace();
-        } catch (URISyntaxException ex) {
+        } catch (SAXException ex) {
             ex.printStackTrace();
         }
+
         //InputSource is = new InputSource(ClassLoader.getSystemResourceAsStream("fulltextarticledownloader/files/rules.xml"));
         try {
             NodeList nl = (NodeList) x.evaluate("//rule", doc, XPathConstants.NODESET);

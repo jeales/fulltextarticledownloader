@@ -16,7 +16,7 @@ public class EUtilsAccessController {
     private static EUtilsAccessController singleton;
     private Long data;
     //rate is number of requests allowed per host per second
-    private static final double RATE = 2.8;
+    private static final double RATE = 2.5;
     private static long delay;
 
     private EUtilsAccessController() {

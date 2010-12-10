@@ -297,9 +297,9 @@ public class QueryPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Could not access file: " + chosenFile.getAbsolutePath());
             }
 
-            for (String string : uniques) {
-                System.out.println(string);
-            }
+            //for (String string : uniques) {
+            //    System.out.println(string);
+            //}
             LinkedList<String> ids = new LinkedList<String>();
             ids.addAll(uniques);
             FinalGUI.getResultsPanel().addStaticSetOfIDs(ids);
