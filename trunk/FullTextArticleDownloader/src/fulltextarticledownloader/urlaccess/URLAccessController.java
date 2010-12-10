@@ -6,6 +6,8 @@ package fulltextarticledownloader.urlaccess;
 
 import fulltextarticledownloader.beans.WaitingDetails;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
@@ -44,6 +46,7 @@ public class URLAccessController {
 
         try {
             URL u = new URL(url);
+            URI uri = new URI(url);
             String host = u.getHost();
             if (wait != null) {
                 wait.setHost(host);
@@ -86,6 +89,8 @@ public class URLAccessController {
                 return new GetMethod(url);
             }
         } catch (MalformedURLException e) {
+            return null;
+        } catch (URISyntaxException ex) {
             return null;
         }
     }

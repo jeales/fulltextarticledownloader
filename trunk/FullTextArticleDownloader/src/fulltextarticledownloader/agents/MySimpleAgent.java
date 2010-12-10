@@ -85,24 +85,6 @@ public class MySimpleAgent {
     private URLAccessController theFatController;
     private HttpClient httpClient;
 
-    static {
-        try {
-            String os = System.getProperty("os.name");
-            os = os.toLowerCase();
-            File parserLibrary = null;
-            if (os.startsWith("win")) {
-                parserLibrary = new File("native/MozillaParser.dll");
-            } else if (os.startsWith("mac")) {
-                parserLibrary = new File("native/libMozillaParser.jnilib");
-            } else {
-                parserLibrary = new File("native/libMozillaParser.so");
-            }
-            MozillaParser.init(parserLibrary.getAbsolutePath(), new File("native/").getAbsolutePath());
-        } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(MySimpleAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-    }
-
     public MySimpleAgent(StatusMonitor statusMonitor, String url, DownloadTarget downloadTarget) {
         this(statusMonitor, url, downloadTarget, false);
     }
@@ -111,9 +93,9 @@ public class MySimpleAgent {
         if (enableLogging) {
             enableLogging();
         }
-        if (parser == null) {
-            setupParser();
-        }
+
+        setupParser();
+
         this.statusMonitor = statusMonitor;
         this.currentRecurseLevel = 1;
         this.startingUrl = url;
@@ -334,6 +316,10 @@ public class MySimpleAgent {
 
     public void runAgent() {
 
+        if (parser == null) {
+            return;
+        }
+
         try {
             if (!getCurrentURL().equals("") && getCurrentURL().contains("http://")) {
                 int currentIteration = 0;
@@ -456,6 +442,27 @@ public class MySimpleAgent {
 
     private void setupParser() {
 
+        try {
+            String os = System.getProperty("os.name");
+            os = os.toLowerCase();
+            File parserLibrary = null;
+            if (os.startsWith("win")) {
+                parserLibrary = new File("native/MozillaParser.dll");
+            } else if (os.startsWith("mac")) {
+                parserLibrary = new File("native/libMozillaParser.jnilib");
+            } else {
+                parserLibrary = new File("native/libMozillaParser.so");
+            }
+
+            MozillaParser.init(parserLibrary.getAbsolutePath(), new File("native/").getAbsolutePath());
+            parser = new MozillaParser();
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(MySimpleAgent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            System.err.println(ex.getMessage());
+        }
+
+
+        
         //boolean isPPC = System.getProperty("os.arch").equals("ppc");
         //boolean isIntel = System.getProperty("os.arch").equals("i386");
 
@@ -569,7 +576,7 @@ public class MySimpleAgent {
         }
          */
 
-        parser = new MozillaParser();
+
         //parser.setVisible(true);
         //parser.setVisible(true);
 

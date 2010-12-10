@@ -119,7 +119,7 @@ public class PdfToTextAutomator {
         if (os.startsWith("Windows")) {
             rs[0] = "pdftotext.exe";
         } else {
-            rs[0] = "pdftotext";
+            rs[0] = "./pdftotext";
         }
 
         File processStdOut = null;
