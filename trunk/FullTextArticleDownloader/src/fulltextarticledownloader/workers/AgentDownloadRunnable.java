@@ -207,6 +207,7 @@ public class AgentDownloadRunnable extends SwingWorker<Void, String> implements 
                 sendPlainTextMessage("Done");
             } else {
                 sendPlainTextMessage("Already Saved");
+                return;
             }
         } else {
             sendPlainTextMessage("N/A");
@@ -240,7 +241,7 @@ public class AgentDownloadRunnable extends SwingWorker<Void, String> implements 
 
     private void sendPlainTextMessage(String m) {
         sendTableMessage(4, m);
-    }
+    }   
 
     private void sendTableMessage(int colID, String message) {
         DownloadTableMessage m = new DownloadTableMessage();
