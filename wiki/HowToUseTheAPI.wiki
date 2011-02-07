@@ -11,6 +11,13 @@ LinkedList<String> pmids;
 LinkedList<String> urls;
 }}}
 
+If you want to iterate through each URL and try to find a PDF for each one. First you can create a FileStore to store your PDFs, using a FileStore will avoid repeating the same download.
+
+{{{
+File fsDir = new File("filestore");
+fsDir.mkdir();
+FileStore fs = new FileStore(fsDir, true);
+}}}
 
 
 
