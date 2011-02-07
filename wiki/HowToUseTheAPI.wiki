@@ -1,8 +1,17 @@
-#summary One-sentence summary of this page.
+#summary Example code for using the API to retrieve articles
+#labels Featured,Phase-Implementation
 
-= Introduction =
+= Starting points =
+I'm just going to describe how to download from PubMed IDs and starting URLs.
+If you want to automate PubMed queries, it includes using the JavaBioinformaticsOnlineToolkit API, which will detract from the clarity of using the fulltextarticledownloader API.
 
-Add your content here.
+Lets suppose we have our PMIDs and URLs in lists.
+{{{
+LinkedList<String> pmids;
+LinkedList<String> urls;
+}}}
+
+
 
 
 = Details =
